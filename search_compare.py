@@ -68,22 +68,72 @@ def binary_search_recursive(a_list, item):
 
 if __name__ == "__main__":
 
+    random.seed(100)
+
     list_sizes = [500, 1000, 5000]
 
-    total_time = 0
-
     for list_size in list_sizes:
+        total_time = 0
         for i in range(100):
 
             mylist = get_me_random_list(list_size)
             start = time.time()
             # search function to test 
+            sequential_search(mylist, -1)
             end = time.time()
             sort_time = end - start
             total_time += sort_time
         
         avg_time = total_time / 100
-        print(f"Avg time: {avg_time:0.08f} seconds")
+        print(f"Avg time to sort a list of {list_size} using sequential search: {avg_time:0.08f} seconds")
+
+    for list_size in list_sizes:
+        total_time = 0
+        for i in range(100):
+
+            mylist = get_me_random_list(list_size)
+            mylist.sort()
+            start = time.time()
+            # search function to test 
+            ordered_sequential_search(mylist, -1)
+            end = time.time()
+            sort_time = end - start
+            total_time += sort_time
+        
+        avg_time = total_time / 100
+        print(f"Avg time to sort a list of {list_size} using ordered sequential search: {avg_time:0.08f} seconds")
+
+    for list_size in list_sizes:
+        total_time = 0
+        for i in range(100):
+
+            mylist = get_me_random_list(list_size)
+            mylist.sort()
+            start = time.time()
+            # search function to test 
+            binary_search_iterative(mylist, -1)
+            end = time.time()
+            sort_time = end - start
+            total_time += sort_time
+        
+        avg_time = total_time / 100
+        print(f"Avg time to sort a list of {list_size} using iterative binary search: {avg_time:0.08f} seconds")
+
+    for list_size in list_sizes:
+        total_time = 0
+        for i in range(100):
+
+            mylist = get_me_random_list(list_size)
+            mylist.sort()
+            start = time.time()
+            # search function to test 
+            binary_search_recursive(mylist, -1)
+            end = time.time()
+            sort_time = end - start
+            total_time += sort_time
+        
+        avg_time = total_time / 100
+        print(f"Avg time to sort a list of {list_size} using recursive binary search: {avg_time:0.08f} seconds")
 
 
 

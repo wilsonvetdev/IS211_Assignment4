@@ -39,6 +39,7 @@ def gap_insertion_sort(a_list, start, gap):
     
         a_list[position] = current_value
 
+
 def python_sort(a_list):
     return sorted(a_list)
 
